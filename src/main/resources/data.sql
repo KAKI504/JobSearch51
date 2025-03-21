@@ -1,4 +1,3 @@
--- Типы контактов
 INSERT INTO contact_types (type)
 SELECT 'EMAIL' WHERE NOT EXISTS (SELECT 1 FROM contact_types WHERE type = 'EMAIL');
 
@@ -14,7 +13,6 @@ SELECT 'FACEBOOK' WHERE NOT EXISTS (SELECT 1 FROM contact_types WHERE type = 'FA
 INSERT INTO contact_types (type)
 SELECT 'LINKEDIN' WHERE NOT EXISTS (SELECT 1 FROM contact_types WHERE type = 'LINKEDIN');
 
--- Категории
 INSERT INTO categories (name)
 SELECT 'IT & Development' WHERE NOT EXISTS (SELECT 1 FROM categories WHERE name = 'IT & Development');
 
@@ -36,7 +34,6 @@ SELECT 'Education' WHERE NOT EXISTS (SELECT 1 FROM categories WHERE name = 'Educ
 INSERT INTO categories (name)
 SELECT 'Healthcare' WHERE NOT EXISTS (SELECT 1 FROM categories WHERE name = 'Healthcare');
 
--- Подкатегории
 INSERT INTO categories (name, parent_id)
 SELECT 'Frontend Developer', (SELECT id FROM categories WHERE name = 'IT & Development')
     WHERE NOT EXISTS (SELECT 1 FROM categories WHERE name = 'Frontend Developer');
@@ -65,7 +62,6 @@ INSERT INTO categories (name, parent_id)
 SELECT 'Data Scientist', (SELECT id FROM categories WHERE name = 'IT & Development')
     WHERE NOT EXISTS (SELECT 1 FROM categories WHERE name = 'Data Scientist');
 
--- Пользователи: соискатель и работодатель
 INSERT INTO users (name, surname, email, password, phone_number, account_type, age)
 SELECT 'Иван', 'Петров', 'ivan@example.com', 'password123', '+79001234567', 'APPLICANT', 30
     WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = 'ivan@example.com');
@@ -74,7 +70,6 @@ INSERT INTO users (name, surname, email, password, phone_number, account_type, a
 SELECT 'ООО Рога и Копыта', '', 'hr@rogaicopyta.com', 'password123', '+79009876543', 'EMPLOYER', 0
     WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = 'hr@rogaicopyta.com');
 
--- Резюме для соискателя (только если пользователь существует)
 INSERT INTO resumes (applicant_id, name, category_id, salary, is_active)
 SELECT
     (SELECT id FROM users WHERE email = 'ivan@example.com'),
@@ -95,7 +90,6 @@ SELECT
     WHERE EXISTS (SELECT 1 FROM users WHERE email = 'ivan@example.com')
 AND NOT EXISTS (SELECT 1 FROM resumes WHERE applicant_id = (SELECT id FROM users WHERE email = 'ivan@example.com') AND name = 'Python Developer');
 
--- Вакансии для работодателя (только если работодатель существует)
 INSERT INTO vacancies (name, description, category_id, salary, exp_from, exp_to, is_active, author_id)
 SELECT
     'Senior Java Developer',
