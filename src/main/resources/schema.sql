@@ -58,10 +58,10 @@ create table if not exists resumes
 
 create table if not exists contacts_info
 (
-    id        int auto_increment primary key,
-    type_id   int          not null,
-    resume_id int          not null,
-    value     varchar(255) not null,
+    id           int auto_increment primary key,
+    type_id      int          not null,
+    resume_id    int          not null,
+    contact_value varchar(255) not null,
     foreign key (type_id) references contact_types (id),
     foreign key (resume_id) references resumes (id)
     );
@@ -109,28 +109,3 @@ create table if not exists messages
     foreign key (responded_applicants_id) references responded_applicants (id),
     foreign key (sender_id) references users (id)
     );
-
-insert into contact_types (type)
-values ('EMAIL'),
-       ('PHONE'),
-       ('TELEGRAM'),
-       ('FACEBOOK'),
-       ('LINKEDIN');
-
-insert into categories (name)
-values ('IT & Development'),
-       ('Sales & Marketing'),
-       ('Management'),
-       ('Administrative'),
-       ('Finance'),
-       ('Education'),
-       ('Healthcare');
-
-insert into categories (name, parent_id)
-values ('Frontend Developer', 1),
-       ('Backend Developer', 1),
-       ('Full Stack Developer', 1),
-       ('Mobile Developer', 1),
-       ('DevOps Engineer', 1),
-       ('QA Engineer', 1),
-       ('Data Scientist', 1);

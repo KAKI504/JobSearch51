@@ -27,7 +27,7 @@ public class ContactInfoDao {
             contactInfo.setId(rs.getInt("id"));
             contactInfo.setTypeId(rs.getInt("type_id"));
             contactInfo.setResumeId(rs.getInt("resume_id"));
-            contactInfo.setValue(rs.getString("value"));
+            contactInfo.setContactValue(rs.getString("contact_value"));
             return contactInfo;
         }, resumeId);
     }
@@ -40,7 +40,7 @@ public class ContactInfoDao {
                 contactInfo.setId(rs.getInt("id"));
                 contactInfo.setTypeId(rs.getInt("type_id"));
                 contactInfo.setResumeId(rs.getInt("resume_id"));
-                contactInfo.setValue(rs.getString("value"));
+                contactInfo.setContactValue(rs.getString("contact_value"));
                 return contactInfo;
             }, id);
             return Optional.ofNullable(DataAccessUtils.singleResult(contacts));
@@ -50,14 +50,14 @@ public class ContactInfoDao {
     }
 
     public int createContactInfo(ContactInfo contactInfo) {
-        String sql = "INSERT INTO contacts_info (type_id, resume_id, value) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES (?, ?, ?)";
 
         jdbcTemplate.update(
                 con -> {
                     PreparedStatement ps = con.prepareStatement(sql, new String[]{"id"});
                     ps.setInt(1, contactInfo.getTypeId());
                     ps.setInt(2, contactInfo.getResumeId());
-                    ps.setString(3, contactInfo.getValue());
+                    ps.setString(3, contactInfo.getContactValue());
                     return ps;
                 }, keyHolder
         );
@@ -66,10 +66,10 @@ public class ContactInfoDao {
     }
 
     public void updateContactInfo(ContactInfo contactInfo) {
-        String sql = "UPDATE contacts_info SET type_id = ?, value = ? WHERE id = ?";
+        String sql = "UPDATE contacts_info SET type_id = ?, contact_value = ? WHERE id = ?";
         jdbcTemplate.update(sql,
                 contactInfo.getTypeId(),
-                contactInfo.getValue(),
+                contactInfo.getContactValue(),
                 contactInfo.getId());
     }
 
