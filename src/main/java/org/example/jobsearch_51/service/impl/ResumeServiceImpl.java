@@ -8,40 +8,38 @@ import org.example.jobsearch_51.service.ResumeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ResumeServiceImpl implements ResumeService {
-
     private final ResumeDao resumeDao;
 
     @Override
     public List<ResumeDto> getAllResumes() {
         return resumeDao.getAllResumes().stream()
                 .map(this::convertToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public List<ResumeDto> getActiveResumes() {
         return resumeDao.getActiveResumes().stream()
                 .map(this::convertToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public List<ResumeDto> getResumesByCategory(int categoryId) {
         return resumeDao.getResumesByCategory(categoryId).stream()
                 .map(this::convertToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public List<ResumeDto> getResumesByApplicant(int applicantId) {
         return resumeDao.getResumesByApplicant(applicantId).stream()
                 .map(this::convertToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
