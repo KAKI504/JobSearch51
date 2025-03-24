@@ -1,0 +1,152 @@
+databaseChangeLog:
+  - changeSet:
+      id: 11-insert-initial-data
+      author: jobsearch
+      changes:
+        - insert:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: type
+                  value: "EMAIL"
+        - insert:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: type
+                  value: "PHONE"
+        - insert:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: type
+                  value: "TELEGRAM"
+        - insert:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: type
+                  value: "FACEBOOK"
+        - insert:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: type
+                  value: "LINKEDIN"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "IT & Development"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Sales & Marketing"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Management"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Administrative"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Finance"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Education"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Healthcare"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Frontend Developer"
+              - column:
+                  name: parent_id
+                  valueComputed: "(SELECT id FROM categories WHERE name = 'IT & Development')"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Backend Developer"
+              - column:
+                  name: parent_id
+                  valueComputed: "(SELECT id FROM categories WHERE name = 'IT & Development')"
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: name
+                  value: "Full Stack Developer"
+              - column:
+                  name: parent_id
+                  valueComputed: "(SELECT id FROM categories WHERE name = 'IT & Development')"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Иван"
+              - column:
+                  name: surname
+                  value: "Петров"
+              - column:
+                  name: email
+                  value: "ivan@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: phone_number
+                  value: "+79001234567"
+              - column:
+                  name: account_type
+                  value: "APPLICANT"
+              - column:
+                  name: age
+                  value: "30"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "ООО Рога и Копыта"
+              - column:
+                  name: surname
+                  value: ""
+              - column:
+                  name: email
+                  value: "hr@rogaicopyta.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: phone_number
+                  value: "+79009876543"
+              - column:
+                  name: account_type
+                  value: "EMPLOYER"
+              - column:
+                  name: age
+                  value: "0"
