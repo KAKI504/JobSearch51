@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 07-create-work-experience-info-table
+      author: jobsearch
+      changes:
+        - createTable:
+            tableName: work_experience_info
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: resume_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: years
+                  type: int
+              - column:
+                  name: company_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: position
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: responsibilities
+                  type: text
+        - addForeignKeyConstraint:
+            baseColumnNames: resume_id
+            baseTableName: work_experience_info
+            constraintName: fk_work_experience_resume
+            referencedColumnNames: id
+            referencedTableName: resumes

@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 06-create-contacts-info-table
+      author: jobsearch
+      changes:
+        - createTable:
+            tableName: contacts_info
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: resume_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: contact_value
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: type_id
+            baseTableName: contacts_info
+            constraintName: fk_contact_info_type
+            referencedColumnNames: id
+            referencedTableName: contact_types
+        - addForeignKeyConstraint:
+            baseColumnNames: resume_id
+            baseTableName: contacts_info
+            constraintName: fk_contact_info_resume
+            referencedColumnNames: id
+            referencedTableName: resumes

@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 10-create-messages-table
+      author: jobsearch
+      changes:
+        - createTable:
+            tableName: messages
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: responded_applicants_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: timestamp
+                  type: timestamp
+                  defaultValue: "CURRENT_TIMESTAMP"
+              - column:
+                  name: sender_id
+                  type: int
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: responded_applicants_id
+            baseTableName: messages
+            constraintName: fk_message_response
+            referencedColumnNames: id
+            referencedTableName: responded_applicants
+        - addForeignKeyConstraint:
+            baseColumnNames: sender_id
+            baseTableName: messages
+            constraintName: fk_message_sender
+            referencedColumnNames: id
+            referencedTableName: users

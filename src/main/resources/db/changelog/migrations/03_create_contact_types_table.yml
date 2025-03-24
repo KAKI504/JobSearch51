@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 03-create-contact-types-table
+      author: jobsearch
+      changes:
+        - createTable:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false

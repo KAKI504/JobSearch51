@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-create-categories-table
+      author: jobsearch
+      changes:
+        - createTable:
+            tableName: categories
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: parent_id
+                  type: int
+        - addForeignKeyConstraint:
+            baseColumnNames: parent_id
+            baseTableName: categories
+            constraintName: fk_categories_parent
+            referencedColumnNames: id
+            referencedTableName: categories

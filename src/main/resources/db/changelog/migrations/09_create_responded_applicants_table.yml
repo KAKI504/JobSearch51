@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 09-create-responded-applicants-table
+      author: jobsearch
+      changes:
+        - createTable:
+            tableName: responded_applicants
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: resume_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: vacancy_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: confirmation
+                  type: boolean
+                  defaultValue: false
+        - addForeignKeyConstraint:
+            baseColumnNames: resume_id
+            baseTableName: responded_applicants
+            constraintName: fk_response_resume
+            referencedColumnNames: id
+            referencedTableName: resumes
+        - addForeignKeyConstraint:
+            baseColumnNames: vacancy_id
+            baseTableName: responded_applicants
+            constraintName: fk_response_vacancy
+            referencedColumnNames: id
+            referencedTableName: vacancies
