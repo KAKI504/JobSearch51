@@ -398,10 +398,10 @@ SELECT
        AND vacancy_id = (SELECT id FROM vacancies WHERE name = 'Senior Java Developer')),
     'Здравствуйте! Я заинтересован в вашей вакансии. Готов обсудить детали.',
     (SELECT id FROM users WHERE email = 'ivan@example.com')
-    WHERE EXISTS (SELECT 1 FROM responded_applicants 
+    WHERE EXISTS (SELECT 1 FROM responded_applicants
                  WHERE resume_id = (SELECT id FROM resumes WHERE name = 'Java Developer' AND applicant_id = (SELECT id FROM users WHERE email = 'ivan@example.com'))
                  AND vacancy_id = (SELECT id FROM vacancies WHERE name = 'Senior Java Developer'))
-AND NOT EXISTS (SELECT 1 FROM messages WHERE responded_applicants_id = (SELECT id FROM responded_applicants 
+AND NOT EXISTS (SELECT 1 FROM messages WHERE responded_applicants_id = (SELECT id FROM responded_applicants
                                             WHERE resume_id = (SELECT id FROM resumes WHERE name = 'Java Developer' AND applicant_id = (SELECT id FROM users WHERE email = 'ivan@example.com'))
                                             AND vacancy_id = (SELECT id FROM vacancies WHERE name = 'Senior Java Developer'))
                 AND content = 'Здравствуйте! Я заинтересован в вашей вакансии. Готов обсудить детали.');
@@ -413,7 +413,10 @@ SELECT
        AND vacancy_id = (SELECT id FROM vacancies WHERE name = 'Senior Java Developer')),
     'Добрый день! Спасибо за интерес к нашей вакансии. Когда вам удобно пройти техническое интервью?',
     (SELECT id FROM users WHERE email = 'hr@rogaicopyta.com')
-    WHERE EXISTS (SELECT 1 FROM responded_applicants 
+    WHERE EXISTS (SELECT 1 FROM responded_applicants
                  WHERE resume_id = (SELECT id FROM resumes WHERE name = 'Java Developer' AND applicant_id = (SELECT id FROM users WHERE email = 'ivan@example.com'))
                  AND vacancy_id = (SELECT id FROM vacancies WHERE name = 'Senior Java Developer'))
-AND NOT EXISTS
+AND NOT EXISTS (SELECT 1 FROM messages WHERE responded_applicants_id = (SELECT id FROM responded_applicants
+                                            WHERE resume_id = (SELECT id FROM resumes WHERE name = 'Java Developer' AND applicant_id = (SELECT id FROM users WHERE email = 'ivan@example.com'))
+                                            AND vacancy_id = (SELECT id FROM vacancies WHERE name = 'Senior Java Developer'))
+                AND content = 'Добрый день Спасибо за интерес к нашей вакансии. Когда вам удобно пройти техническое интервью?');
