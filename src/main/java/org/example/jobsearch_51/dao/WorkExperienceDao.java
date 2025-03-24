@@ -1,7 +1,9 @@
 package org.example.jobsearch_51.dao;
 
-import org.example.jobsearch_51.model.WorkExperience;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.jobsearch_51.exceptions.WorkExperienceNotFoundException;
+import org.example.jobsearch_51.model.WorkExperience;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class WorkExperienceDao {
@@ -49,6 +52,7 @@ public class WorkExperienceDao {
             }, id);
             return Optional.ofNullable(DataAccessUtils.singleResult(experiences));
         } catch (EmptyResultDataAccessException e) {
+            log.error("Work experience not found with id: {}", id, e);
             return Optional.empty();
         }
     }
@@ -69,22 +73,48 @@ public class WorkExperienceDao {
                 }, keyHolder
         );
 
-        return Objects.requireNonNull(keyHolder.getKey()).intValue();
+        int id = Objects.requireNonNull(keyHolder.getKey()).intValue();
+        log.info("Created work experience record with ID: {}", id);
+        return id;
     }
 
     public void updateWorkExperience(WorkExperience workExperience) {
         String sql = "UPDATE work_experience_info SET years = ?, company_name = ?, position = ?, " +
                 "responsibilities = ? WHERE id = ?";
-        jdbcTemplate.update(sql,
+        int rowsAffected = jdbcTemplate.update(sql,
                 workExperience.getYears(),
                 workExperience.getCompanyName(),
                 workExperience.getPosition(),
                 workExperience.getResponsibilities(),
                 workExperience.getId());
+
+        if (rowsAffected == 0) {
+            throw new WorkExperienceNotFoundException(workExperience.getId());
+        }
+
+        log.info("Updated work experience record with ID: {}", workExperience.getId());
     }
 
     public void deleteWorkExperience(int id) {
         String sql = "DELETE FROM work_experience_info WHERE id = ?";
-        jdbcTemplate.update(sql, id);
+        int rowsAffected = jdbcTemplate.update(sql, id);
+
+        if (rowsAffected == 0) {
+            throw new WorkExperienceNotFoundException(id);
+        }
+
+        log.info("Deleted work experience record with ID: {}", id);
+    }
+
+    public void deleteWorkExperiencesByResumeId(int resumeId) {
+        String sql = "DELETE FROM work_experience_info WHERE resume_id = ?";
+        int rowsAffected = jdbcTemplate.update(sql, resumeId);
+        log.info("Deleted {} work experience records for resume ID: {}", rowsAffected, resumeId);
+    }
+
+    public boolean workExperienceExists(int workExperienceId) {
+        String sql = "SELECT COUNT(*) FROM work_experience_info WHERE id = ?";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, workExperienceId);
+        return count != null && count > 0;
     }
 }

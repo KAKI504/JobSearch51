@@ -1,7 +1,8 @@
 package org.example.jobsearch_51.dao;
 
-import org.example.jobsearch_51.model.ContactInfo;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.jobsearch_51.model.ContactInfo;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class ContactInfoDao {
@@ -45,6 +47,7 @@ public class ContactInfoDao {
             }, id);
             return Optional.ofNullable(DataAccessUtils.singleResult(contacts));
         } catch (EmptyResultDataAccessException e) {
+            log.error("Contact info not found with id: {}", id, e);
             return Optional.empty();
         }
     }
@@ -62,19 +65,45 @@ public class ContactInfoDao {
                 }, keyHolder
         );
 
-        return Objects.requireNonNull(keyHolder.getKey()).intValue();
+        int id = Objects.requireNonNull(keyHolder.getKey()).intValue();
+        log.info("Created contact info with ID: {}", id);
+        return id;
     }
 
     public void updateContactInfo(ContactInfo contactInfo) {
         String sql = "UPDATE contacts_info SET type_id = ?, contact_value = ? WHERE id = ?";
-        jdbcTemplate.update(sql,
+        int rowsAffected = jdbcTemplate.update(sql,
                 contactInfo.getTypeId(),
                 contactInfo.getContactValue(),
                 contactInfo.getId());
+
+        if (rowsAffected == 0) {
+            log.warn("No contact info found to update with ID: {}", contactInfo.getId());
+        } else {
+            log.info("Updated contact info with ID: {}", contactInfo.getId());
+        }
     }
 
     public void deleteContactInfo(int id) {
         String sql = "DELETE FROM contacts_info WHERE id = ?";
-        jdbcTemplate.update(sql, id);
+        int rowsAffected = jdbcTemplate.update(sql, id);
+
+        if (rowsAffected == 0) {
+            log.warn("No contact info found to delete with ID: {}", id);
+        } else {
+            log.info("Deleted contact info with ID: {}", id);
+        }
+    }
+
+    public void deleteContactInfoByResumeId(int resumeId) {
+        String sql = "DELETE FROM contacts_info WHERE resume_id = ?";
+        int rowsAffected = jdbcTemplate.update(sql, resumeId);
+        log.info("Deleted {} contact info records for resume ID: {}", rowsAffected, resumeId);
+    }
+
+    public boolean contactInfoExists(int contactInfoId) {
+        String sql = "SELECT COUNT(*) FROM contacts_info WHERE id = ?";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, contactInfoId);
+        return count != null && count > 0;
     }
 }

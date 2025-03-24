@@ -1,7 +1,9 @@
 package org.example.jobsearch_51.dao;
 
-import org.example.jobsearch_51.model.Education;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.jobsearch_51.exceptions.EducationNotFoundException;
+import org.example.jobsearch_51.model.Education;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class EducationDao {
@@ -52,6 +55,7 @@ public class EducationDao {
             }, id);
             return Optional.ofNullable(DataAccessUtils.singleResult(educations));
         } catch (EmptyResultDataAccessException e) {
+            log.error("Education not found with id: {}", id, e);
             return Optional.empty();
         }
     }
@@ -73,23 +77,49 @@ public class EducationDao {
                 }, keyHolder
         );
 
-        return Objects.requireNonNull(keyHolder.getKey()).intValue();
+        int id = Objects.requireNonNull(keyHolder.getKey()).intValue();
+        log.info("Created education record with ID: {}", id);
+        return id;
     }
 
     public void updateEducation(Education education) {
         String sql = "UPDATE education_info SET institution = ?, program = ?, start_date = ?, " +
                 "end_date = ?, degree = ? WHERE id = ?";
-        jdbcTemplate.update(sql,
+        int rowsAffected = jdbcTemplate.update(sql,
                 education.getInstitution(),
                 education.getProgram(),
                 Date.valueOf(education.getStartDate()),
                 Date.valueOf(education.getEndDate()),
                 education.getDegree(),
                 education.getId());
+
+        if (rowsAffected == 0) {
+            throw new EducationNotFoundException(education.getId());
+        }
+
+        log.info("Updated education record with ID: {}", education.getId());
     }
 
     public void deleteEducation(int id) {
         String sql = "DELETE FROM education_info WHERE id = ?";
-        jdbcTemplate.update(sql, id);
+        int rowsAffected = jdbcTemplate.update(sql, id);
+
+        if (rowsAffected == 0) {
+            throw new EducationNotFoundException(id);
+        }
+
+        log.info("Deleted education record with ID: {}", id);
+    }
+
+    public void deleteEducationsByResumeId(int resumeId) {
+        String sql = "DELETE FROM education_info WHERE resume_id = ?";
+        int rowsAffected = jdbcTemplate.update(sql, resumeId);
+        log.info("Deleted {} education records for resume ID: {}", rowsAffected, resumeId);
+    }
+
+    public boolean educationExists(int educationId) {
+        String sql = "SELECT COUNT(*) FROM education_info WHERE id = ?";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, educationId);
+        return count != null && count > 0;
     }
 }
