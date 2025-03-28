@@ -1,12 +1,14 @@
 package org.example.jobsearch_51.controller;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.dto.WorkExperienceDto;
 import org.example.jobsearch_51.exceptions.WorkExperienceNotFoundException;
 import org.example.jobsearch_51.service.WorkExperienceService;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,17 +17,20 @@ import java.util.List;
 @RestController
 @RequestMapping("work-experiences")
 @RequiredArgsConstructor
+@Validated
 public class WorkExperienceController {
     private final WorkExperienceService workExperienceService;
 
     @GetMapping("resume/{resumeId}")
-    public List<WorkExperienceDto> getWorkExperiencesByResume(@PathVariable int resumeId) {
+    public List<WorkExperienceDto> getWorkExperiencesByResume(
+            @PathVariable @Min(value = 1, message = "ID резюме должен быть положительным числом") int resumeId) {
         log.info("Requesting work experience records for resume id: {}", resumeId);
         return workExperienceService.getWorkExperiencesByResume(resumeId);
     }
 
     @GetMapping("{id}")
-    public WorkExperienceDto getWorkExperienceById(@PathVariable int id) {
+    public WorkExperienceDto getWorkExperienceById(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Requesting work experience with id: {}", id);
         WorkExperienceDto workExperience = workExperienceService.getWorkExperienceById(id);
         if (workExperience == null) {
@@ -51,7 +56,8 @@ public class WorkExperienceController {
     }
 
     @DeleteMapping("{id}")
-    public HttpStatus deleteWorkExperience(@PathVariable int id) {
+    public HttpStatus deleteWorkExperience(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Deleting work experience record with id: {}", id);
         workExperienceService.deleteWorkExperience(id);
         log.info("Work experience record deleted successfully");

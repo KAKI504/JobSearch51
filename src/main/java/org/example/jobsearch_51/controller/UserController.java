@@ -1,6 +1,8 @@
 package org.example.jobsearch_51.controller;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.dto.UserDto;
@@ -8,6 +10,7 @@ import org.example.jobsearch_51.exceptions.FileProcessingException;
 import org.example.jobsearch_51.exceptions.UserNotFoundException;
 import org.example.jobsearch_51.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("users")
 @RequiredArgsConstructor
+@Validated
 public class UserController {
     private final UserService userService;
 
@@ -27,7 +31,8 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    public UserDto getUserById(@PathVariable int id) {
+    public UserDto getUserById(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Requesting user with id: {}", id);
         UserDto user = userService.getUserById(id);
         if (user == null) {
@@ -37,7 +42,8 @@ public class UserController {
     }
 
     @GetMapping("email/{email}")
-    public UserDto getUserByEmail(@PathVariable String email) {
+    public UserDto getUserByEmail(
+            @PathVariable @Email(message = "Некорректный формат email") String email) {
         log.info("Requesting user with email: {}", email);
         UserDto user = userService.getUserByEmail(email);
         if (user == null) {

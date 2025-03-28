@@ -1,12 +1,14 @@
 package org.example.jobsearch_51.controller;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.dto.EducationDto;
 import org.example.jobsearch_51.exceptions.EducationNotFoundException;
 import org.example.jobsearch_51.service.EducationService;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,17 +17,20 @@ import java.util.List;
 @RestController
 @RequestMapping("educations")
 @RequiredArgsConstructor
+@Validated
 public class EducationController {
     private final EducationService educationService;
 
     @GetMapping("resume/{resumeId}")
-    public List<EducationDto> getEducationsByResume(@PathVariable int resumeId) {
+    public List<EducationDto> getEducationsByResume(
+            @PathVariable @Min(value = 1, message = "ID резюме должен быть положительным числом") int resumeId) {
         log.info("Requesting education records for resume id: {}", resumeId);
         return educationService.getEducationsByResume(resumeId);
     }
 
     @GetMapping("{id}")
-    public EducationDto getEducationById(@PathVariable int id) {
+    public EducationDto getEducationById(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Requesting education with id: {}", id);
         EducationDto education = educationService.getEducationById(id);
         if (education == null) {
@@ -51,7 +56,8 @@ public class EducationController {
     }
 
     @DeleteMapping("{id}")
-    public HttpStatus deleteEducation(@PathVariable int id) {
+    public HttpStatus deleteEducation(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Deleting education record with id: {}", id);
         educationService.deleteEducation(id);
         log.info("Education record deleted successfully");

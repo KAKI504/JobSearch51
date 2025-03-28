@@ -1,12 +1,14 @@
 package org.example.jobsearch_51.controller;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.dto.ResumeDto;
 import org.example.jobsearch_51.exceptions.ResumeNotFoundException;
 import org.example.jobsearch_51.service.ResumeService;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("resumes")
 @RequiredArgsConstructor
+@Validated
 public class ResumeController {
     private final ResumeService resumeService;
 
@@ -31,7 +34,8 @@ public class ResumeController {
     }
 
     @GetMapping("{id}")
-    public ResumeDto getResumeById(@PathVariable int id) {
+    public ResumeDto getResumeById(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Requesting resume with id: {}", id);
         ResumeDto resume = resumeService.getResumeById(id);
         if (resume == null) {
@@ -41,13 +45,15 @@ public class ResumeController {
     }
 
     @GetMapping("category/{categoryId}")
-    public List<ResumeDto> getResumesByCategory(@PathVariable int categoryId) {
+    public List<ResumeDto> getResumesByCategory(
+            @PathVariable @Min(value = 1, message = "ID категории должен быть положительным числом") int categoryId) {
         log.info("Requesting resumes for category id: {}", categoryId);
         return resumeService.getResumesByCategory(categoryId);
     }
 
     @GetMapping("applicant/{applicantId}")
-    public List<ResumeDto> getResumesByApplicant(@PathVariable int applicantId) {
+    public List<ResumeDto> getResumesByApplicant(
+            @PathVariable @Min(value = 1, message = "ID соискателя должен быть положительным числом") int applicantId) {
         log.info("Requesting resumes for applicant id: {}", applicantId);
         return resumeService.getResumesByApplicant(applicantId);
     }
@@ -69,7 +75,8 @@ public class ResumeController {
     }
 
     @DeleteMapping("{id}")
-    public HttpStatus deleteResume(@PathVariable int id) {
+    public HttpStatus deleteResume(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         log.info("Deleting resume with id: {}", id);
         resumeService.deleteResume(id);
         log.info("Resume deleted successfully");
@@ -77,7 +84,9 @@ public class ResumeController {
     }
 
     @PutMapping("{id}/status")
-    public HttpStatus toggleResumeStatus(@PathVariable int id, @RequestParam boolean isActive) {
+    public HttpStatus toggleResumeStatus(
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id,
+            @RequestParam boolean isActive) {
         log.info("Toggling resume status to {} for id: {}", isActive, id);
         resumeService.toggleResumeStatus(id, isActive);
         log.info("Resume status toggled successfully");
