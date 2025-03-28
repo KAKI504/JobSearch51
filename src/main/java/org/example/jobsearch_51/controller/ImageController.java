@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.service.FileService;
 import org.example.jobsearch_51.util.FileValidator;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("images")
 @RequiredArgsConstructor
+@Validated
 public class ImageController {
     private final FileService fileService;
     private final FileValidator fileValidator;

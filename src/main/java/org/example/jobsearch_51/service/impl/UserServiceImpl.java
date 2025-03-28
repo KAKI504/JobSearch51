@@ -3,6 +3,8 @@ package org.example.jobsearch_51.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.jobsearch_51.dao.UserDao;
 import org.example.jobsearch_51.dto.UserDto;
+import org.example.jobsearch_51.exceptions.UserAlreadyExistsException;
+import org.example.jobsearch_51.exceptions.UserNotFoundException;
 import org.example.jobsearch_51.model.User;
 import org.example.jobsearch_51.service.FileService;
 import org.example.jobsearch_51.service.UserService;
@@ -28,19 +30,40 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID пользователя должен быть положительным числом");
+        }
+
         return userDao.getUserById(id)
                 .map(this::convertToDto)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @Override
     public void createUser(UserDto userDto) {
+        if (userDao.checkIfUserExists(userDto.getEmail())) {
+            throw new UserAlreadyExistsException(userDto.getEmail());
+        }
+
         User user = convertToEntity(userDto);
         userDao.createUser(user);
     }
 
     @Override
     public void updateUser(UserDto userDto) {
+        if (userDto.getId() <= 0) {
+            throw new IllegalArgumentException("ID пользователя должен быть положительным числом");
+        }
+
+        if (!userDao.getUserById(userDto.getId()).isPresent()) {
+            throw new UserNotFoundException(userDto.getId());
+        }
+
+        User existingUser = userDao.getUserById(userDto.getId()).orElseThrow(() -> new UserNotFoundException(userDto.getId()));
+        if (!existingUser.getEmail().equals(userDto.getEmail()) && userDao.checkIfUserExists(userDto.getEmail())) {
+            throw new UserAlreadyExistsException(userDto.getEmail());
+        }
+
         User user = convertToEntity(userDto);
         userDao.updateUser(user);
     }
@@ -52,9 +75,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserByEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("Email не может быть пустым");
+        }
+
         return userDao.getUserByEmail(email)
                 .map(this::convertToDto)
-                .orElseThrow(() -> new RuntimeException("User not found with email: " + email));
+                .orElseThrow(() -> new UserNotFoundException("User not found with email: " + email));
     }
 
     private UserDto convertToDto(User user) {

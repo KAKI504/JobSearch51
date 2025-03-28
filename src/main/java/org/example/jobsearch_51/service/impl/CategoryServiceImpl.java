@@ -21,12 +21,20 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category getCategoryById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID категории должен быть положительным числом");
+        }
+
         return categoryDao.getCategoryById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
     }
 
     @Override
     public List<Category> getCategoriesByParent(int parentId) {
+        if (parentId < 0) {
+            throw new IllegalArgumentException("ID родительской категории не может быть отрицательным");
+        }
+
         return categoryDao.getCategoriesByParentId(parentId);
     }
 }

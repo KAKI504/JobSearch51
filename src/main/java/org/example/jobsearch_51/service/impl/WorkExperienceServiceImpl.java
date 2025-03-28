@@ -1,8 +1,11 @@
 package org.example.jobsearch_51.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.jobsearch_51.dao.ResumeDao;
 import org.example.jobsearch_51.dao.WorkExperienceDao;
 import org.example.jobsearch_51.dto.WorkExperienceDto;
+import org.example.jobsearch_51.exceptions.ResumeNotFoundException;
+import org.example.jobsearch_51.exceptions.WorkExperienceNotFoundException;
 import org.example.jobsearch_51.model.WorkExperience;
 import org.example.jobsearch_51.service.WorkExperienceService;
 import org.springframework.stereotype.Service;
@@ -14,9 +17,18 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class WorkExperienceServiceImpl implements WorkExperienceService {
     private final WorkExperienceDao workExperienceDao;
+    private final ResumeDao resumeDao;
 
     @Override
     public List<WorkExperienceDto> getWorkExperiencesByResume(int resumeId) {
+        if (resumeId <= 0) {
+            throw new IllegalArgumentException("ID резюме должен быть положительным числом");
+        }
+
+        if (!resumeDao.getResumeById(resumeId).isPresent()) {
+            throw new ResumeNotFoundException(resumeId);
+        }
+
         return workExperienceDao.getWorkExperienceByResumeId(resumeId).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
@@ -24,25 +36,61 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
 
     @Override
     public WorkExperienceDto getWorkExperienceById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID опыта работы должен быть положительным числом");
+        }
+
         return workExperienceDao.getWorkExperienceById(id)
                 .map(this::convertToDto)
-                .orElseThrow(() -> new RuntimeException("Work experience not found with id: " + id));
+                .orElseThrow(() -> new WorkExperienceNotFoundException(id));
     }
 
     @Override
     public void createWorkExperience(WorkExperienceDto workExperienceDto) {
+        if (workExperienceDto.getResumeId() <= 0) {
+            throw new IllegalArgumentException("ID резюме должен быть положительным числом");
+        }
+
+        if (!resumeDao.getResumeById(workExperienceDto.getResumeId()).isPresent()) {
+            throw new ResumeNotFoundException(workExperienceDto.getResumeId());
+        }
+
+        if (workExperienceDto.getYears() < 0) {
+            throw new IllegalArgumentException("Опыт работы не может быть отрицательным");
+        }
+
         WorkExperience workExperience = convertToEntity(workExperienceDto);
         workExperienceDao.createWorkExperience(workExperience);
     }
 
     @Override
     public void updateWorkExperience(WorkExperienceDto workExperienceDto) {
+        if (workExperienceDto.getId() <= 0) {
+            throw new IllegalArgumentException("ID опыта работы должен быть положительным числом");
+        }
+
+        if (!workExperienceDao.workExperienceExists(workExperienceDto.getId())) {
+            throw new WorkExperienceNotFoundException(workExperienceDto.getId());
+        }
+
+        if (workExperienceDto.getYears() < 0) {
+            throw new IllegalArgumentException("Опыт работы не может быть отрицательным");
+        }
+
         WorkExperience workExperience = convertToEntity(workExperienceDto);
         workExperienceDao.updateWorkExperience(workExperience);
     }
 
     @Override
     public void deleteWorkExperience(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID опыта работы должен быть положительным числом");
+        }
+
+        if (!workExperienceDao.workExperienceExists(id)) {
+            throw new WorkExperienceNotFoundException(id);
+        }
+
         workExperienceDao.deleteWorkExperience(id);
     }
 
