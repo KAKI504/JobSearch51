@@ -1,5 +1,6 @@
 package org.example.jobsearch_51.error.handler;
 
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.error.ErrorResponseBody;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Slf4j
 @RestControllerAdvice
@@ -53,6 +54,27 @@ public class GlobalExceptionHandler {
                 .body(errorService.makeResponse(e.getBindingResult()));
     }
 
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorResponseBody> handleConstraintViolationException(ConstraintViolationException e) {
+        log.error("Constraint violation: {}", e.getMessage());
+
+        Map<String, List<String>> violations = new HashMap<>();
+        e.getConstraintViolations().forEach(violation -> {
+            String path = violation.getPropertyPath().toString();
+            if (!violations.containsKey(path)) {
+                violations.put(path, new ArrayList<>());
+            }
+            violations.get(path).add(violation.getMessage());
+        });
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponseBody.builder()
+                        .error("Ошибка валидации параметров")
+                        .reasons(Map.of("errors", violations))
+                        .build());
+    }
+
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<ErrorResponseBody> handleUserAlreadyExistsException(UserAlreadyExistsException e) {
         log.error("User already exists: {}", e.getMessage());
@@ -80,6 +102,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ProfileUpdateException.class)
     public ResponseEntity<ErrorResponseBody> handleProfileUpdateException(ProfileUpdateException e) {
         log.error("Profile update error: {}", e.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(errorService.makeResponse(e));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponseBody> handleIllegalArgumentException(IllegalArgumentException e) {
+        log.error("Illegal argument: {}", e.getMessage());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(errorService.makeResponse(e));
