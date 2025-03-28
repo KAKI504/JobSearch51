@@ -5,11 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.jobsearch_51.validation.ValidExperienceRange;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ValidExperienceRange
 public class VacancyDto {
     private int id;
 
