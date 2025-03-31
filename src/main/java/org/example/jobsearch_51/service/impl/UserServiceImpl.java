@@ -184,6 +184,8 @@ public class UserServiceImpl implements UserService {
         return convertToDto(user);
     }
 
+
+
     private UserDto convertToDto(User user) {
         return UserDto.builder()
                 .id(user.getId())
