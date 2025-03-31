@@ -6,9 +6,10 @@ import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jobsearch_51.dto.UserDto;
-import org.example.jobsearch_51.exceptions.FileProcessingException;
 import org.example.jobsearch_51.exceptions.UserNotFoundException;
+import org.example.jobsearch_51.service.FileService;
 import org.example.jobsearch_51.service.UserService;
+import org.example.jobsearch_51.util.FileValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,8 @@ import java.util.List;
 @Validated
 public class UserController {
     private final UserService userService;
+    private final FileService fileService;
+    private final FileValidator fileValidator;
 
     @GetMapping
     public List<UserDto> getAllUsers() {
@@ -68,20 +71,26 @@ public class UserController {
         return HttpStatus.OK;
     }
 
+    @GetMapping("employer/{id}")
+    public UserDto getEmployerById(
+            @PathVariable @Min(value = 1, message = "ID работодателя должен быть положительным числом") int id) {
+        log.info("Requesting employer with id: {}", id);
+        return userService.getEmployerById(id);
+    }
+
+    @GetMapping("applicant/{id}")
+    public UserDto getApplicantById(
+            @PathVariable @Min(value = 1, message = "ID соискателя должен быть положительным числом") int id) {
+        log.info("Requesting applicant with id: {}", id);
+        return userService.getApplicantById(id);
+    }
+
     @PostMapping("avatar")
     public String uploadAvatar(@RequestParam("file") MultipartFile file) {
-        log.info("Uploading avatar");
-        if (file == null || file.isEmpty()) {
-            throw new FileProcessingException("Файл не может быть пустым");
-        }
-
-        String contentType = file.getContentType();
-        if (contentType == null || !contentType.startsWith("image/")) {
-            throw new FileProcessingException("Загружаемый файл должен быть изображением");
-        }
-
-        String filename = userService.uploadAvatar(file);
-        log.info("Avatar uploaded successfully: {}", filename);
+        log.info("Uploading user avatar: {}", file.getOriginalFilename());
+        fileValidator.validateImageFile(file);
+        String filename = fileService.saveImage(file);
+        log.info("User avatar uploaded successfully: {}", filename);
         return filename;
     }
 }

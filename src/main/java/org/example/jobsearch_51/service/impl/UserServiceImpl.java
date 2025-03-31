@@ -109,4 +109,33 @@ public class UserServiceImpl implements UserService {
                 .age(userDto.getAge())
                 .build();
     }
+    @Override
+    public UserDto getEmployerById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID работодателя должен быть положительным числом");
+        }
+        User user = userDao.getUserById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+
+        if (!"EMPLOYER".equals(user.getAccountType())) {
+            throw new IllegalArgumentException("Пользователь с ID " + id + " не является работодателем");
+        }
+
+        return convertToDto(user);
+    }
+
+    @Override
+    public UserDto getApplicantById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID соискателя должен быть положительным числом");
+        }
+        User user = userDao.getUserById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+
+        if (!"APPLICANT".equals(user.getAccountType())) {
+            throw new IllegalArgumentException("Пользователь с ID " + id + " не является соискателем");
+        }
+
+        return convertToDto(user);
+    }
 }

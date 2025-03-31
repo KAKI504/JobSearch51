@@ -15,7 +15,7 @@ public class FileValidator {
             "image/jpeg", "image/png", "image/gif", "image/jpg"
     );
 
-    private static final long MAX_FILE_SIZE = 2 * 1024 * 1024;
+    private static final long MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 
     public void validateImageFile(MultipartFile file) {
         if (file == null || file.isEmpty()) {

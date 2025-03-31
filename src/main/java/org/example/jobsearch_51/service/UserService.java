@@ -11,4 +11,6 @@ public interface UserService {
     void updateUser(UserDto userDto);
     String uploadAvatar(MultipartFile file);
     UserDto getUserByEmail(String email);
+    UserDto getEmployerById(int id);
+    UserDto getApplicantById(int id);
 }
