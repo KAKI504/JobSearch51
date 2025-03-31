@@ -20,8 +20,18 @@ public class AuthController {
     @PostMapping("register")
     public HttpStatus register(@Valid @RequestBody UserDto userDto) {
         log.info("Registration request received for email: {}", userDto.getEmail());
+
+        userDto.setEnabled(true);
+
         userService.createUser(userDto);
         log.info("User successfully registered with email: {}", userDto.getEmail());
         return HttpStatus.CREATED;
+    }
+
+    @GetMapping("check-email")
+    public boolean checkEmailAvailability(@RequestParam("email") String email) {
+        log.info("Checking email availability: {}", email);
+        boolean exists = userService.checkIfUserExists(email);
+        return !exists;
     }
 }
