@@ -13,4 +13,5 @@ public interface UserService {
     UserDto getUserByEmail(String email);
     UserDto getEmployerById(int id);
     UserDto getApplicantById(int id);
+    boolean checkIfUserExists(String email);
 }
