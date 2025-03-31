@@ -133,7 +133,7 @@ public class VacancyServiceImpl implements VacancyService {
     private VacancyDto convertToDto(Vacancy vacancy) {
         return VacancyDto.builder()
                 .id(vacancy.getId())
-                .name(vacancy.getName())
+                .title(vacancy.getName())  // изменено с name на title
                 .description(vacancy.getDescription())
                 .categoryId(vacancy.getCategoryId())
                 .salary(vacancy.getSalary())
@@ -147,7 +147,7 @@ public class VacancyServiceImpl implements VacancyService {
     private Vacancy convertToEntity(VacancyDto vacancyDto) {
         Vacancy vacancy = new Vacancy();
         vacancy.setId(vacancyDto.getId());
-        vacancy.setName(vacancyDto.getName());
+        vacancy.setName(vacancyDto.getTitle());  // изменено с getName() на getTitle()
         vacancy.setDescription(vacancyDto.getDescription());
         vacancy.setCategoryId(vacancyDto.getCategoryId());
         vacancy.setSalary(vacancyDto.getSalary());
