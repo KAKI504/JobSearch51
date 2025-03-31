@@ -63,22 +63,20 @@ public class ResumeController {
         return resumeService.getResumesByApplicant(applicantId);
     }
 
-    // Оставляем основной маппинг для совместимости
     @PostMapping
     public HttpStatus createResume(@Valid @RequestBody ResumeDto resumeDto, Authentication authentication) {
         return createResumeInternal(resumeDto);
     }
 
-    // Добавляем новый маппинг для "/create"
     @PostMapping("create")
     public HttpStatus createResumeWithCreate(@Valid @RequestBody ResumeDto resumeDto) {
         return createResumeInternal(resumeDto);
     }
 
-    // Общая логика для обоих эндпоинтов
     private HttpStatus createResumeInternal(ResumeDto resumeDto) {
         UserDto currentUser = securityUtil.getCurrentUser();
         if (!"APPLICANT".equals(currentUser.getAccountType()) && !"ADMIN".equals(currentUser.getAccountType())) {
+            log.warn("Unauthorized attempt to create resume by user with role: {}", currentUser.getAccountType());
             throw new AccessDeniedException("Только соискатели могут создавать резюме");
         }
 
@@ -90,11 +88,12 @@ public class ResumeController {
     }
 
     @PutMapping
-    public HttpStatus updateResume(@Valid @RequestBody ResumeDto resumeDto, Authentication authentication) {
+    public HttpStatus updateResume(@Valid @RequestBody ResumeDto resumeDto) {
         UserDto currentUser = securityUtil.getCurrentUser();
         ResumeDto existingResume = resumeService.getResumeById(resumeDto.getId());
 
         if (existingResume.getApplicantId() != currentUser.getId() && !"ADMIN".equals(currentUser.getAccountType())) {
+            log.warn("Unauthorized attempt to update resume: {}", currentUser.getEmail());
             throw new AccessDeniedException("Доступ запрещен: можно редактировать только собственные резюме");
         }
 
@@ -106,12 +105,12 @@ public class ResumeController {
 
     @DeleteMapping("{id}")
     public HttpStatus deleteResume(
-            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id,
-            Authentication authentication) {
+            @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id) {
         UserDto currentUser = securityUtil.getCurrentUser();
         ResumeDto existingResume = resumeService.getResumeById(id);
 
         if (existingResume.getApplicantId() != currentUser.getId() && !"ADMIN".equals(currentUser.getAccountType())) {
+            log.warn("Unauthorized attempt to delete resume: {}", currentUser.getEmail());
             throw new AccessDeniedException("Доступ запрещен: можно удалять только собственные резюме");
         }
 
@@ -124,12 +123,12 @@ public class ResumeController {
     @PutMapping("{id}/status")
     public HttpStatus toggleResumeStatus(
             @PathVariable @Min(value = 1, message = "ID должен быть положительным числом") int id,
-            @RequestParam boolean isActive,
-            Authentication authentication) {
+            @RequestParam boolean isActive) {
         UserDto currentUser = securityUtil.getCurrentUser();
         ResumeDto existingResume = resumeService.getResumeById(id);
 
         if (existingResume.getApplicantId() != currentUser.getId() && !"ADMIN".equals(currentUser.getAccountType())) {
+            log.warn("Unauthorized attempt to change resume status: {}", currentUser.getEmail());
             throw new AccessDeniedException("Доступ запрещен: можно изменять статус только собственных резюме");
         }
 
