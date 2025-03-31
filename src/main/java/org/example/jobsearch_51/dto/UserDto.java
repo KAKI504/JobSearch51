@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
-    private int id;
+    private Integer id;
 
     @NotBlank(message = "Имя не может быть пустым")
     @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов")
@@ -35,10 +35,12 @@ public class UserDto {
     private String phoneNumber;
 
     @NotBlank(message = "Тип аккаунта не может быть пустым")
-    @Pattern(regexp = "^(APPLICANT|EMPLOYER)$", message = "Тип аккаунта должен быть 'APPLICANT' или 'EMPLOYER'")
+    @Pattern(regexp = "^(APPLICANT|EMPLOYER|ADMIN)$", message = "Тип аккаунта должен быть 'APPLICANT', 'EMPLOYER' или 'ADMIN'")
     private String accountType;
 
     @Min(value = 0, message = "Возраст не может быть отрицательным")
     @Max(value = 120, message = "Возраст должен быть не более 120 лет")
     private int age;
+
+    private boolean enabled = true;
 }
