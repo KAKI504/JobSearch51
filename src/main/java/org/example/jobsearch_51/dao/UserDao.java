@@ -1,12 +1,11 @@
 package org.example.jobsearch_51.dao;
 
-import org.example.jobsearch_51.model.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.jobsearch_51.model.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -38,6 +37,7 @@ public class UserDao {
             user.setAvatar(rs.getString("avatar"));
             user.setAccountType(rs.getString("account_type"));
             user.setAge(rs.getInt("age"));
+            user.setEnabled(rs.getBoolean("enabled"));
             return user;
         });
     }
@@ -61,6 +61,7 @@ public class UserDao {
                 user.setAvatar(rs.getString("avatar"));
                 user.setAccountType(rs.getString("account_type"));
                 user.setAge(rs.getInt("age"));
+                user.setEnabled(rs.getBoolean("enabled"));
                 return user;
             }, id);
             return Optional.ofNullable(DataAccessUtils.singleResult(users));
@@ -89,39 +90,12 @@ public class UserDao {
                 user.setAvatar(rs.getString("avatar"));
                 user.setAccountType(rs.getString("account_type"));
                 user.setAge(rs.getInt("age"));
+                user.setEnabled(rs.getBoolean("enabled"));
                 return user;
             }, email);
             return Optional.ofNullable(DataAccessUtils.singleResult(users));
         } catch (EmptyResultDataAccessException e) {
             log.error("User not found with email: {}", email, e);
-            return Optional.empty();
-        }
-    }
-
-    public Optional<User> getUserByPhone(String phoneNumber) {
-        if (phoneNumber == null || phoneNumber.isEmpty()) {
-            log.error("Invalid phone number: null or empty");
-            throw new IllegalArgumentException("Номер телефона не может быть пустым");
-        }
-
-        String sql = "SELECT * FROM users WHERE phone_number = ?";
-        try {
-            List<User> users = jdbcTemplate.query(sql, (rs, rowNum) -> {
-                User user = new User();
-                user.setId(rs.getInt("id"));
-                user.setName(rs.getString("name"));
-                user.setSurname(rs.getString("surname"));
-                user.setEmail(rs.getString("email"));
-                user.setPassword(rs.getString("password"));
-                user.setPhoneNumber(rs.getString("phone_number"));
-                user.setAvatar(rs.getString("avatar"));
-                user.setAccountType(rs.getString("account_type"));
-                user.setAge(rs.getInt("age"));
-                return user;
-            }, phoneNumber);
-            return Optional.ofNullable(DataAccessUtils.singleResult(users));
-        } catch (EmptyResultDataAccessException e) {
-            log.error("User not found with phone number: {}", phoneNumber, e);
             return Optional.empty();
         }
     }
@@ -157,8 +131,8 @@ public class UserDao {
             throw new IllegalArgumentException("Пользователь с таким email уже существует");
         }
 
-        String sql = "INSERT INTO users (name, surname, email, password, phone_number, account_type, age) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (name, surname, email, password, phone_number, account_type, age, enabled) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         jdbcTemplate.update(
                 con -> {
@@ -170,6 +144,7 @@ public class UserDao {
                     ps.setString(5, user.getPhoneNumber());
                     ps.setString(6, user.getAccountType());
                     ps.setInt(7, user.getAge());
+                    ps.setBoolean(8, user.isEnabled());
                     return ps;
                 }, keyHolder
         );
@@ -177,22 +152,6 @@ public class UserDao {
         int id = Objects.requireNonNull(keyHolder.getKey()).intValue();
         log.info("Created user with ID: {}", id);
         return id;
-    }
-
-    public void updateUserAvatar(int userId, String avatarPath) {
-        if (userId <= 0) {
-            log.error("Invalid user ID: {}", userId);
-            throw new IllegalArgumentException("ID пользователя должен быть положительным числом");
-        }
-
-        String sql = "UPDATE users SET avatar = ? WHERE id = ?";
-        int rowsUpdated = jdbcTemplate.update(sql, avatarPath, userId);
-
-        if (rowsUpdated == 0) {
-            log.warn("No user avatar updated with ID: {}", userId);
-        } else {
-            log.info("Updated avatar for user with ID: {}", userId);
-        }
     }
 
     public void updateUser(User user) {
@@ -216,13 +175,16 @@ public class UserDao {
             throw new IllegalArgumentException("Возраст не может быть отрицательным");
         }
 
-        String sql = "UPDATE users SET name = ?, surname = ?, email = ?, phone_number = ?, age = ? WHERE id = ?";
+        String sql = "UPDATE users SET name = ?, surname = ?, email = ?, password = ?, phone_number = ?, account_type = ?, age = ?, enabled = ? WHERE id = ?";
         int rowsUpdated = jdbcTemplate.update(sql,
                 user.getName(),
                 user.getSurname(),
                 user.getEmail(),
+                user.getPassword(),
                 user.getPhoneNumber(),
+                user.getAccountType(),
                 user.getAge(),
+                user.isEnabled(),
                 user.getId());
 
         if (rowsUpdated == 0) {
@@ -241,39 +203,5 @@ public class UserDao {
         String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, email);
         return count != null && count > 0;
-    }
-
-    public List<User> getEmployers() {
-        String sql = "SELECT * FROM users WHERE account_type = 'EMPLOYER'";
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
-            User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setName(rs.getString("name"));
-            user.setSurname(rs.getString("surname"));
-            user.setEmail(rs.getString("email"));
-            user.setPassword(rs.getString("password"));
-            user.setPhoneNumber(rs.getString("phone_number"));
-            user.setAvatar(rs.getString("avatar"));
-            user.setAccountType(rs.getString("account_type"));
-            user.setAge(rs.getInt("age"));
-            return user;
-        });
-    }
-
-    public List<User> getApplicants() {
-        String sql = "SELECT * FROM users WHERE account_type = 'APPLICANT'";
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
-            User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setName(rs.getString("name"));
-            user.setSurname(rs.getString("surname"));
-            user.setEmail(rs.getString("email"));
-            user.setPassword(rs.getString("password"));
-            user.setPhoneNumber(rs.getString("phone_number"));
-            user.setAvatar(rs.getString("avatar"));
-            user.setAccountType(rs.getString("account_type"));
-            user.setAge(rs.getInt("age"));
-            return user;
-        });
     }
 }
