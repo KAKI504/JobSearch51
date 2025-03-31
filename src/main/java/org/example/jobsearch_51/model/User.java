@@ -19,4 +19,5 @@ public class User {
     private String avatar;
     private String accountType;
     private int age;
+    private boolean enabled;
 }
