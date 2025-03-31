@@ -1,356 +1,222 @@
-2025-03-31T04:09:14.040+06:00  INFO 25152 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Starting JoBSearch51Application using Java 21.0.4 with PID 25152 (/Users/kanat/Desktop/JoBSearch_51/target/classes started by kanat in /Users/kanat/Desktop/JoBSearch_51)
-2025-03-31T04:09:14.040+06:00  INFO 25152 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : No active profile set, falling back to 1 default profile: "default"
-2025-03-31T04:09:14.503+06:00  WARN 25152 --- [JobSearch] [main] trationDelegate$BeanPostProcessorChecker : Bean 'validationConfig' of type [org.example.jobsearch_51.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [methodValidationPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2025-03-31T04:09:14.900+06:00  INFO 25152 --- [JobSearch] [main] liquibase.database                       : Set default schema name to PUBLIC
-2025-03-31T04:09:15.020+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/01_create_users_table.yml
-2025-03-31T04:09:15.026+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/02_create_categories_table.yml
-2025-03-31T04:09:15.028+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/03_create_contact_types_table.yml
-2025-03-31T04:09:15.029+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/04_create_vacancies_table.yml
-2025-03-31T04:09:15.032+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/05_create_resumes_table.yml
-2025-03-31T04:09:15.034+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/06_create_contacts_info_table.yml
-2025-03-31T04:09:15.036+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/07_create_work_experience_info_table.yml
-2025-03-31T04:09:15.038+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/08_create_education_info_table.yml
-2025-03-31T04:09:15.039+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/09_create_responded_applicants_table.yml
-2025-03-31T04:09:15.041+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/10_create_messages_table.yml
-2025-03-31T04:09:15.042+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/11_insert_initial_data.yml
-2025-03-31T04:09:15.087+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2025-03-31T04:09:15.119+06:00  INFO 25152 --- [JobSearch] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2025-03-31T04:09:15.120+06:00  INFO 25152 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : UPDATE SUMMARY
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : Run:                          0
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : Previously run:              11
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : Filtered out:                 0
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : -------------------------------
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : Total change sets:           11
-2025-03-31T04:09:15.124+06:00  INFO 25152 --- [JobSearch] [main] liquibase.util                           : Update summary generated
-2025-03-31T04:09:15.125+06:00  INFO 25152 --- [JobSearch] [main] liquibase.command                        : Command execution complete
-2025-03-31T04:09:15.465+06:00  INFO 25152 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Started JoBSearch51Application in 1.64 seconds (process running for 2.431)
-2025-03-31T04:09:51.734+06:00 ERROR 25152 --- [JobSearch] [http-nio-8080-exec-1] o.e.j.e.handler.GlobalExceptionHandler   : Unexpected error: Required part 'file' is not present.
+2025-04-01T02:24:20.713+06:00  INFO 97960 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Starting JoBSearch51Application using Java 21.0.4 with PID 97960 (/Users/kanat/Desktop/JoBSearch_51/target/classes started by kanat in /Users/kanat/Desktop/JoBSearch_51)
+2025-04-01T02:24:20.717+06:00  INFO 97960 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : No active profile set, falling back to 1 default profile: "default"
+2025-04-01T02:24:21.226+06:00  WARN 97960 --- [JobSearch] [main] trationDelegate$BeanPostProcessorChecker : Bean 'validationConfig' of type [org.example.jobsearch_51.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [methodValidationPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-04-01T02:24:21.637+06:00  INFO 97960 --- [JobSearch] [main] liquibase.database                       : Set default schema name to PUBLIC
+2025-04-01T02:24:21.832+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2025-04-01T02:24:21.876+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-04-01T02:24:21.954+06:00  INFO 97960 --- [JobSearch] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-04-01T02:24:21.954+06:00  INFO 97960 --- [JobSearch] [main] liquibase.command                        : Using deploymentId: 3452661954
+2025-04-01T02:24:21.955+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-04-01T02:24:21.975+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/01_create_users_table.yml::01-create-users-table::jobsearch
+2025-04-01T02:24:21.980+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table users created
+2025-04-01T02:24:21.981+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/01_create_users_table.yml::01-create-users-table::jobsearch ran successfully in 4ms
+2025-04-01T02:24:21.984+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/001-create-roles.yml::create-roles::admin
+2025-04-01T02:24:21.985+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table roles created
+2025-04-01T02:24:21.985+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/001-create-roles.yml::create-roles::admin ran successfully in 1ms
+2025-04-01T02:24:21.986+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/002-add-default-roles.yml::add-default-roles::admin
+2025-04-01T02:24:21.991+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Custom SQL executed
+2025-04-01T02:24:21.991+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/002-add-default-roles.yml::add-default-roles::admin ran successfully in 5ms
+2025-04-01T02:24:21.992+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/003-add-role-id-to-users.yml::add-role-id-to-users::admin
+2025-04-01T02:24:21.998+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Columns role_id(int) added to users
+2025-04-01T02:24:21.998+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/003-add-role-id-to-users.yml::add-role-id-to-users::admin ran successfully in 6ms
+2025-04-01T02:24:21.999+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/13_add_enabled_field_to_users.yml::add_enabled_to_users::admin
+2025-04-01T02:24:22.002+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Columns enabled(boolean) added to users
+2025-04-01T02:24:22.002+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/13_add_enabled_field_to_users.yml::add_enabled_to_users::admin ran successfully in 3ms
+2025-04-01T02:24:22.003+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/004-add-default-admin-user.yml::add-default-admin-user::admin
+2025-04-01T02:24:22.006+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Custom SQL executed
+2025-04-01T02:24:22.006+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/004-add-default-admin-user.yml::add-default-admin-user::admin ran successfully in 3ms
+2025-04-01T02:24:22.007+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/02_create_categories_table.yml::02-create-categories-table::jobsearch
+2025-04-01T02:24:22.009+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table categories created
+2025-04-01T02:24:22.010+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to categories (parent_id)
+2025-04-01T02:24:22.010+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/02_create_categories_table.yml::02-create-categories-table::jobsearch ran successfully in 2ms
+2025-04-01T02:24:22.011+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/03_create_contact_types_table.yml::03-create-contact-types-table::jobsearch
+2025-04-01T02:24:22.012+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table contact_types created
+2025-04-01T02:24:22.013+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/03_create_contact_types_table.yml::03-create-contact-types-table::jobsearch ran successfully in 2ms
+2025-04-01T02:24:22.015+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/04_create_vacancies_table.yml::04-create-vacancies-table::jobsearch
+2025-04-01T02:24:22.017+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table vacancies created
+2025-04-01T02:24:22.018+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to vacancies (category_id)
+2025-04-01T02:24:22.019+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to vacancies (author_id)
+2025-04-01T02:24:22.020+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/04_create_vacancies_table.yml::04-create-vacancies-table::jobsearch ran successfully in 4ms
+2025-04-01T02:24:22.022+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/05_create_resumes_table.yml::05-create-resumes-table::jobsearch
+2025-04-01T02:24:22.023+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table resumes created
+2025-04-01T02:24:22.024+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to resumes (applicant_id)
+2025-04-01T02:24:22.027+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to resumes (category_id)
+2025-04-01T02:24:22.027+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/05_create_resumes_table.yml::05-create-resumes-table::jobsearch ran successfully in 5ms
+2025-04-01T02:24:22.029+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/06_create_contacts_info_table.yml::06-create-contacts-info-table::jobsearch
+2025-04-01T02:24:22.031+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table contacts_info created
+2025-04-01T02:24:22.031+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to contacts_info (type_id)
+2025-04-01T02:24:22.032+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to contacts_info (resume_id)
+2025-04-01T02:24:22.032+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/06_create_contacts_info_table.yml::06-create-contacts-info-table::jobsearch ran successfully in 3ms
+2025-04-01T02:24:22.034+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/07_create_work_experience_info_table.yml::07-create-work-experience-info-table::jobsearch
+2025-04-01T02:24:22.035+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table work_experience_info created
+2025-04-01T02:24:22.036+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to work_experience_info (resume_id)
+2025-04-01T02:24:22.036+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/07_create_work_experience_info_table.yml::07-create-work-experience-info-table::jobsearch ran successfully in 2ms
+2025-04-01T02:24:22.038+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/08_create_education_info_table.yml::08-create-education-info-table::jobsearch
+2025-04-01T02:24:22.039+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table education_info created
+2025-04-01T02:24:22.040+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to education_info (resume_id)
+2025-04-01T02:24:22.040+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/08_create_education_info_table.yml::08-create-education-info-table::jobsearch ran successfully in 2ms
+2025-04-01T02:24:22.041+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/09_create_responded_applicants_table.yml::09-create-responded-applicants-table::jobsearch
+2025-04-01T02:24:22.042+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table responded_applicants created
+2025-04-01T02:24:22.043+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to responded_applicants (resume_id)
+2025-04-01T02:24:22.044+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to responded_applicants (vacancy_id)
+2025-04-01T02:24:22.044+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/09_create_responded_applicants_table.yml::09-create-responded-applicants-table::jobsearch ran successfully in 3ms
+2025-04-01T02:24:22.045+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/10_create_messages_table.yml::10-create-messages-table::jobsearch
+2025-04-01T02:24:22.046+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table messages created
+2025-04-01T02:24:22.047+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to messages (responded_applicants_id)
+2025-04-01T02:24:22.048+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to messages (sender_id)
+2025-04-01T02:24:22.048+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/10_create_messages_table.yml::10-create-messages-table::jobsearch ran successfully in 2ms
+2025-04-01T02:24:22.051+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/11_insert_initial_data.yml::11-insert-initial-data::jobsearch
+2025-04-01T02:24:22.052+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:24:22.053+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:24:22.053+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:24:22.053+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:24:22.054+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:24:22.054+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.055+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.055+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.055+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.056+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.056+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.057+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.057+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.058+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.058+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:24:22.059+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into users
+2025-04-01T02:24:22.059+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into users
+2025-04-01T02:24:22.060+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/11_insert_initial_data.yml::11-insert-initial-data::jobsearch ran successfully in 8ms
+2025-04-01T02:24:22.061+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/14_add_test_users.yml::update_users_enabled::admin
+2025-04-01T02:24:22.064+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Custom SQL executed
+2025-04-01T02:24:22.064+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/14_add_test_users.yml::update_users_enabled::admin ran successfully in 3ms
+2025-04-01T02:24:22.065+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/create-reviews-table.yml::create-reviews-table::admin
+2025-04-01T02:24:22.067+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : Table reviews created
+2025-04-01T02:24:22.067+06:00  INFO 97960 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/create-reviews-table.yml::create-reviews-table::admin ran successfully in 2ms
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : UPDATE SUMMARY
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : Run:                         18
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : Previously run:               0
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : Filtered out:                 0
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : -------------------------------
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : Total change sets:           18
+2025-04-01T02:24:22.074+06:00  INFO 97960 --- [JobSearch] [main] liquibase.util                           : Update summary generated
+2025-04-01T02:24:22.075+06:00  INFO 97960 --- [JobSearch] [main] liquibase.command                        : Update command completed successfully.
+2025-04-01T02:24:22.075+06:00  INFO 97960 --- [JobSearch] [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 44
+2025-04-01T02:24:22.076+06:00  INFO 97960 --- [JobSearch] [main] liquibase.lockservice                    : Successfully released change log lock
+2025-04-01T02:24:22.076+06:00  INFO 97960 --- [JobSearch] [main] liquibase.command                        : Command execution complete
+2025-04-01T02:24:22.228+06:00  WARN 97960 --- [JobSearch] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01T02:24:22.461+06:00  WARN 97960 --- [JobSearch] [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'file' is not present.
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:216) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:196) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:226) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Using generated security password: 12fa33ce-1654-4aa6-89b4-0274943e4315
 
-2025-03-31T04:09:51.742+06:00 ERROR 25152 --- [JobSearch] [http-nio-8080-exec-1] o.e.jobsearch_51.error.ErrorServiceImpl  : Error occurred: Required part 'file' is not present.
-2025-03-31T04:09:53.519+06:00 ERROR 25152 --- [JobSearch] [http-nio-8080-exec-4] o.e.j.e.handler.GlobalExceptionHandler   : Unexpected error: Required part 'file' is not present.
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'file' is not present.
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:216) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:196) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:226) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+2025-04-01T02:24:22.492+06:00  INFO 97960 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Started JoBSearch51Application in 1.999 seconds (process running for 2.425)
+2025-04-01T02:28:26.734+06:00  INFO 99141 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Starting JoBSearch51Application using Java 21.0.4 with PID 99141 (/Users/kanat/Desktop/JoBSearch_51/target/classes started by kanat in /Users/kanat/Desktop/JoBSearch_51)
+2025-04-01T02:28:26.735+06:00  INFO 99141 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : No active profile set, falling back to 1 default profile: "default"
+2025-04-01T02:28:27.227+06:00  WARN 99141 --- [JobSearch] [main] trationDelegate$BeanPostProcessorChecker : Bean 'validationConfig' of type [org.example.jobsearch_51.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [methodValidationPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-04-01T02:28:27.714+06:00  INFO 99141 --- [JobSearch] [main] liquibase.database                       : Set default schema name to PUBLIC
+2025-04-01T02:28:27.881+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2025-04-01T02:28:27.916+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-04-01T02:28:27.987+06:00  INFO 99141 --- [JobSearch] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-04-01T02:28:27.987+06:00  INFO 99141 --- [JobSearch] [main] liquibase.command                        : Using deploymentId: 3452907987
+2025-04-01T02:28:27.988+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-04-01T02:28:28.009+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/01_create_users_table.yml::01-create-users-table::jobsearch
+2025-04-01T02:28:28.014+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table users created
+2025-04-01T02:28:28.014+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/01_create_users_table.yml::01-create-users-table::jobsearch ran successfully in 4ms
+2025-04-01T02:28:28.017+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/001-create-roles.yml::create-roles::admin
+2025-04-01T02:28:28.018+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table roles created
+2025-04-01T02:28:28.018+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/001-create-roles.yml::create-roles::admin ran successfully in 1ms
+2025-04-01T02:28:28.019+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/002-add-default-roles.yml::add-default-roles::admin
+2025-04-01T02:28:28.024+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Custom SQL executed
+2025-04-01T02:28:28.024+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/002-add-default-roles.yml::add-default-roles::admin ran successfully in 5ms
+2025-04-01T02:28:28.025+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/003-add-role-id-to-users.yml::add-role-id-to-users::admin
+2025-04-01T02:28:28.031+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Columns role_id(int) added to users
+2025-04-01T02:28:28.031+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/003-add-role-id-to-users.yml::add-role-id-to-users::admin ran successfully in 6ms
+2025-04-01T02:28:28.032+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/13_add_enabled_field_to_users.yml::add_enabled_to_users::admin
+2025-04-01T02:28:28.035+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Columns enabled(boolean) added to users
+2025-04-01T02:28:28.035+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/13_add_enabled_field_to_users.yml::add_enabled_to_users::admin ran successfully in 3ms
+2025-04-01T02:28:28.036+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/004-add-default-admin-user.yml::add-default-admin-user::admin
+2025-04-01T02:28:28.039+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Custom SQL executed
+2025-04-01T02:28:28.039+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/004-add-default-admin-user.yml::add-default-admin-user::admin ran successfully in 3ms
+2025-04-01T02:28:28.041+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/02_create_categories_table.yml::02-create-categories-table::jobsearch
+2025-04-01T02:28:28.042+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table categories created
+2025-04-01T02:28:28.043+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to categories (parent_id)
+2025-04-01T02:28:28.043+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/02_create_categories_table.yml::02-create-categories-table::jobsearch ran successfully in 2ms
+2025-04-01T02:28:28.044+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/03_create_contact_types_table.yml::03-create-contact-types-table::jobsearch
+2025-04-01T02:28:28.045+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table contact_types created
+2025-04-01T02:28:28.045+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/03_create_contact_types_table.yml::03-create-contact-types-table::jobsearch ran successfully in 1ms
+2025-04-01T02:28:28.048+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/04_create_vacancies_table.yml::04-create-vacancies-table::jobsearch
+2025-04-01T02:28:28.049+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table vacancies created
+2025-04-01T02:28:28.050+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to vacancies (category_id)
+2025-04-01T02:28:28.051+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to vacancies (author_id)
+2025-04-01T02:28:28.051+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/04_create_vacancies_table.yml::04-create-vacancies-table::jobsearch ran successfully in 3ms
+2025-04-01T02:28:28.053+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/05_create_resumes_table.yml::05-create-resumes-table::jobsearch
+2025-04-01T02:28:28.054+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table resumes created
+2025-04-01T02:28:28.055+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to resumes (applicant_id)
+2025-04-01T02:28:28.056+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to resumes (category_id)
+2025-04-01T02:28:28.056+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/05_create_resumes_table.yml::05-create-resumes-table::jobsearch ran successfully in 3ms
+2025-04-01T02:28:28.058+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/06_create_contacts_info_table.yml::06-create-contacts-info-table::jobsearch
+2025-04-01T02:28:28.059+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table contacts_info created
+2025-04-01T02:28:28.060+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to contacts_info (type_id)
+2025-04-01T02:28:28.061+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to contacts_info (resume_id)
+2025-04-01T02:28:28.061+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/06_create_contacts_info_table.yml::06-create-contacts-info-table::jobsearch ran successfully in 3ms
+2025-04-01T02:28:28.063+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/07_create_work_experience_info_table.yml::07-create-work-experience-info-table::jobsearch
+2025-04-01T02:28:28.064+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table work_experience_info created
+2025-04-01T02:28:28.065+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to work_experience_info (resume_id)
+2025-04-01T02:28:28.065+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/07_create_work_experience_info_table.yml::07-create-work-experience-info-table::jobsearch ran successfully in 2ms
+2025-04-01T02:28:28.066+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/08_create_education_info_table.yml::08-create-education-info-table::jobsearch
+2025-04-01T02:28:28.067+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table education_info created
+2025-04-01T02:28:28.068+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to education_info (resume_id)
+2025-04-01T02:28:28.068+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/08_create_education_info_table.yml::08-create-education-info-table::jobsearch ran successfully in 2ms
+2025-04-01T02:28:28.070+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/09_create_responded_applicants_table.yml::09-create-responded-applicants-table::jobsearch
+2025-04-01T02:28:28.071+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table responded_applicants created
+2025-04-01T02:28:28.072+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to responded_applicants (resume_id)
+2025-04-01T02:28:28.072+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to responded_applicants (vacancy_id)
+2025-04-01T02:28:28.072+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/09_create_responded_applicants_table.yml::09-create-responded-applicants-table::jobsearch ran successfully in 2ms
+2025-04-01T02:28:28.074+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/10_create_messages_table.yml::10-create-messages-table::jobsearch
+2025-04-01T02:28:28.075+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table messages created
+2025-04-01T02:28:28.076+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to messages (responded_applicants_id)
+2025-04-01T02:28:28.077+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Foreign key constraint added to messages (sender_id)
+2025-04-01T02:28:28.077+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/10_create_messages_table.yml::10-create-messages-table::jobsearch ran successfully in 3ms
+2025-04-01T02:28:28.080+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/11_insert_initial_data.yml::11-insert-initial-data::jobsearch
+2025-04-01T02:28:28.081+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:28:28.081+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:28:28.082+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:28:28.082+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:28:28.083+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into contact_types
+2025-04-01T02:28:28.083+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.083+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.084+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.084+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.085+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.085+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.085+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.086+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.086+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.087+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into categories
+2025-04-01T02:28:28.088+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into users
+2025-04-01T02:28:28.088+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : New row inserted into users
+2025-04-01T02:28:28.088+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/11_insert_initial_data.yml::11-insert-initial-data::jobsearch ran successfully in 8ms
+2025-04-01T02:28:28.089+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/14_add_test_users.yml::update_users_enabled::admin
+2025-04-01T02:28:28.092+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Custom SQL executed
+2025-04-01T02:28:28.093+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/14_add_test_users.yml::update_users_enabled::admin ran successfully in 3ms
+2025-04-01T02:28:28.094+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Running Changeset: db/changelog/migrations/create-reviews-table.yml::create-reviews-table::admin
+2025-04-01T02:28:28.096+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : Table reviews created
+2025-04-01T02:28:28.096+06:00  INFO 99141 --- [JobSearch] [main] liquibase.changelog                      : ChangeSet db/changelog/migrations/create-reviews-table.yml::create-reviews-table::admin ran successfully in 2ms
+2025-04-01T02:28:28.102+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : UPDATE SUMMARY
+2025-04-01T02:28:28.102+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : Run:                         18
+2025-04-01T02:28:28.102+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : Previously run:               0
+2025-04-01T02:28:28.103+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : Filtered out:                 0
+2025-04-01T02:28:28.103+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : -------------------------------
+2025-04-01T02:28:28.103+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : Total change sets:           18
+2025-04-01T02:28:28.103+06:00  INFO 99141 --- [JobSearch] [main] liquibase.util                           : Update summary generated
+2025-04-01T02:28:28.104+06:00  INFO 99141 --- [JobSearch] [main] liquibase.command                        : Update command completed successfully.
+2025-04-01T02:28:28.104+06:00  INFO 99141 --- [JobSearch] [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 44
+2025-04-01T02:28:28.105+06:00  INFO 99141 --- [JobSearch] [main] liquibase.lockservice                    : Successfully released change log lock
+2025-04-01T02:28:28.105+06:00  INFO 99141 --- [JobSearch] [main] liquibase.command                        : Command execution complete
+2025-04-01T02:28:28.253+06:00  WARN 99141 --- [JobSearch] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01T02:28:28.495+06:00  WARN 99141 --- [JobSearch] [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-2025-03-31T04:09:53.522+06:00 ERROR 25152 --- [JobSearch] [http-nio-8080-exec-4] o.e.jobsearch_51.error.ErrorServiceImpl  : Error occurred: Required part 'file' is not present.
-2025-03-31T04:12:08.060+06:00 ERROR 25152 --- [JobSearch] [http-nio-8080-exec-5] o.e.j.e.handler.GlobalExceptionHandler   : Unexpected error: Required part 'file' is not present.
+Using generated security password: e877394c-c2ee-4bbc-98df-45dcec8789e1
 
-org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'file' is not present.
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:216) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:196) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:226) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-31T04:12:08.065+06:00 ERROR 25152 --- [JobSearch] [http-nio-8080-exec-5] o.e.jobsearch_51.error.ErrorServiceImpl  : Error occurred: Required part 'file' is not present.
-2025-03-31T07:06:00.472+06:00  INFO 11068 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Starting JoBSearch51Application using Java 21.0.4 with PID 11068 (/Users/kanat/Desktop/JoBSearch_51/target/classes started by kanat in /Users/kanat/Desktop/JoBSearch_51)
-2025-03-31T07:06:00.473+06:00  INFO 11068 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : No active profile set, falling back to 1 default profile: "default"
-2025-03-31T07:06:00.899+06:00  WARN 11068 --- [JobSearch] [main] trationDelegate$BeanPostProcessorChecker : Bean 'validationConfig' of type [org.example.jobsearch_51.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [methodValidationPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2025-03-31T07:06:01.315+06:00  INFO 11068 --- [JobSearch] [main] liquibase.database                       : Set default schema name to PUBLIC
-2025-03-31T07:06:01.436+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/01_create_users_table.yml
-2025-03-31T07:06:01.441+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/02_create_categories_table.yml
-2025-03-31T07:06:01.443+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/03_create_contact_types_table.yml
-2025-03-31T07:06:01.445+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/04_create_vacancies_table.yml
-2025-03-31T07:06:01.448+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/05_create_resumes_table.yml
-2025-03-31T07:06:01.450+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/06_create_contacts_info_table.yml
-2025-03-31T07:06:01.452+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/07_create_work_experience_info_table.yml
-2025-03-31T07:06:01.453+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/08_create_education_info_table.yml
-2025-03-31T07:06:01.455+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/09_create_responded_applicants_table.yml
-2025-03-31T07:06:01.456+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/10_create_messages_table.yml
-2025-03-31T07:06:01.458+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/11_insert_initial_data.yml
-2025-03-31T07:06:01.509+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2025-03-31T07:06:01.545+06:00  INFO 11068 --- [JobSearch] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2025-03-31T07:06:01.546+06:00  INFO 11068 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2025-03-31T07:06:01.550+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : UPDATE SUMMARY
-2025-03-31T07:06:01.550+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : Run:                          0
-2025-03-31T07:06:01.550+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : Previously run:              11
-2025-03-31T07:06:01.550+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : Filtered out:                 0
-2025-03-31T07:06:01.550+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : -------------------------------
-2025-03-31T07:06:01.550+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : Total change sets:           11
-2025-03-31T07:06:01.551+06:00  INFO 11068 --- [JobSearch] [main] liquibase.util                           : Update summary generated
-2025-03-31T07:06:01.551+06:00  INFO 11068 --- [JobSearch] [main] liquibase.command                        : Command execution complete
-2025-03-31T07:06:01.878+06:00  INFO 11068 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Started JoBSearch51Application in 1.617 seconds (process running for 2.062)
-2025-03-31T07:41:09.011+06:00  INFO 21091 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Starting JoBSearch51Application using Java 21.0.4 with PID 21091 (/Users/kanat/Desktop/JoBSearch_51/target/classes started by kanat in /Users/kanat/Desktop/JoBSearch_51)
-2025-03-31T07:41:09.012+06:00  INFO 21091 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : No active profile set, falling back to 1 default profile: "default"
-2025-03-31T07:41:09.443+06:00  WARN 21091 --- [JobSearch] [main] trationDelegate$BeanPostProcessorChecker : Bean 'validationConfig' of type [org.example.jobsearch_51.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [methodValidationPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2025-03-31T07:41:09.845+06:00  INFO 21091 --- [JobSearch] [main] liquibase.database                       : Set default schema name to PUBLIC
-2025-03-31T07:41:09.966+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/01_create_users_table.yml
-2025-03-31T07:41:09.972+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/02_create_categories_table.yml
-2025-03-31T07:41:09.974+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/03_create_contact_types_table.yml
-2025-03-31T07:41:09.975+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/04_create_vacancies_table.yml
-2025-03-31T07:41:09.978+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/05_create_resumes_table.yml
-2025-03-31T07:41:09.980+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/06_create_contacts_info_table.yml
-2025-03-31T07:41:09.983+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/07_create_work_experience_info_table.yml
-2025-03-31T07:41:09.984+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/08_create_education_info_table.yml
-2025-03-31T07:41:09.986+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/09_create_responded_applicants_table.yml
-2025-03-31T07:41:09.987+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/10_create_messages_table.yml
-2025-03-31T07:41:09.989+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading resource: db/changelog/migrations/11_insert_initial_data.yml
-2025-03-31T07:41:10.037+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2025-03-31T07:41:10.069+06:00  INFO 21091 --- [JobSearch] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2025-03-31T07:41:10.070+06:00  INFO 21091 --- [JobSearch] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2025-03-31T07:41:10.076+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : UPDATE SUMMARY
-2025-03-31T07:41:10.077+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : Run:                          0
-2025-03-31T07:41:10.077+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : Previously run:              11
-2025-03-31T07:41:10.077+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : Filtered out:                 0
-2025-03-31T07:41:10.077+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : -------------------------------
-2025-03-31T07:41:10.077+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : Total change sets:           11
-2025-03-31T07:41:10.077+06:00  INFO 21091 --- [JobSearch] [main] liquibase.util                           : Update summary generated
-2025-03-31T07:41:10.078+06:00  INFO 21091 --- [JobSearch] [main] liquibase.command                        : Command execution complete
-2025-03-31T07:41:10.436+06:00  INFO 21091 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Started JoBSearch51Application in 1.635 seconds (process running for 2.021)
-2025-03-31T07:41:38.007+06:00 ERROR 21091 --- [JobSearch] [http-nio-8080-exec-1] o.e.j.e.handler.GlobalExceptionHandler   : Unexpected error: Required part 'file' is not present.
-
-org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'file' is not present.
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:216) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:196) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:226) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-03-31T07:41:38.015+06:00 ERROR 21091 --- [JobSearch] [http-nio-8080-exec-1] o.e.jobsearch_51.error.ErrorServiceImpl  : Error occurred: Required part 'file' is not present.
-2025-03-31T07:41:40.598+06:00 ERROR 21091 --- [JobSearch] [http-nio-8080-exec-4] o.e.j.e.handler.GlobalExceptionHandler   : Unexpected error: Required part 'file' is not present.
-
-org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'file' is not present.
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:216) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:196) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:226) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-03-31T07:41:40.599+06:00 ERROR 21091 --- [JobSearch] [http-nio-8080-exec-4] o.e.jobsearch_51.error.ErrorServiceImpl  : Error occurred: Required part 'file' is not present.
+2025-04-01T02:28:28.524+06:00  INFO 99141 --- [JobSearch] [main] o.e.jobsearch_51.JoBSearch51Application  : Started JoBSearch51Application in 2.008 seconds (process running for 2.514)
