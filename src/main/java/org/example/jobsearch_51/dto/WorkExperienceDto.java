@@ -30,4 +30,7 @@ public class WorkExperienceDto {
 
     @Size(max = 1000, message = "Обязанности должны быть не более 1000 символов")
     private String responsibilities;
+
+    private Integer expFrom;
+    private Integer expTo;
 }
