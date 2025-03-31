@@ -139,7 +139,7 @@ public class ResponseDao {
         }
     }
 
-    public List<Response> getRespondedApplicants(int vacancyId) {
+    public List<Response>  (int vacancyId) {
         if (vacancyId <= 0) {
             log.error("Invalid vacancy ID: {}", vacancyId);
             throw new IllegalArgumentException("ID вакансии должен быть положительным числом");
